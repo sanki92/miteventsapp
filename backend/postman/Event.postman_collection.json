@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "5dd5a9c5-133b-495e-a30b-3d3021ea8597",
+		"name": "Event",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18274868"
+	},
+	"item": [
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "Mark Event Attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"67b858172364e86dd6fce4fb\",\r\n    \"eventId\": \"67b77f3f8c0f1fcd08a8be1f\",\r\n    \"date\": \"2025-02-23T06:30:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/events/scan",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"scan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reissue QR Code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/events/reissue/67b77e4e8c0f1fcd08a8be19",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"reissue",
+								"67b77e4e8c0f1fcd08a8be19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Attendance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"qrData\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/events/attendance/67b77e4e8c0f1fcd08a8be19",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"attendance",
+								"67b77e4e8c0f1fcd08a8be19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registration",
+			"item": [
+				{
+					"name": "Event Unregistration (student)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/events/register/67b70e714c9972c71d6529f4",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"register",
+								"67b70e714c9972c71d6529f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrations By EventId (spoc, admin)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/events/registrations/67b70e714c9972c71d6529f4",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"registrations",
+								"67b70e714c9972c71d6529f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrations Status (student)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/events/register/status/67b77f3f8c0f1fcd08a8be1f",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"register",
+								"status",
+								"67b77f3f8c0f1fcd08a8be1f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Registration (student)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/events/register/67b77f3f8c0f1fcd08a8be1f",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"events",
+								"register",
+								"67b77f3f8c0f1fcd08a8be1f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Event (spoc, admin)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Tech Innovations Seminar 2\",\r\n  \"description\": \"A seminar on the latest innovations in technology and AI.\",\r\n  \"location\": \"Auditorium A, MIT Campus\",\r\n  \"clubId\": \"67b5e4af72e1fafb6657bf29\",\r\n  \"poster\": \"https://example.com/posters/tech-innovations.jpg\",\r\n  \"fromDate\": \"2025-03-01T10:00:00.000Z\",\r\n  \"toDate\": \"2025-03-01T15:00:00.000Z\",\r\n  \"singleDayEvent\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/events/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Event (spoc, admin)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventId\": \"67b7056ae9a14f5b8ba6ca91\",\r\n    \"title\": \"Tech Innovations Seminar 1231 123123123123123\",\r\n    \"description\": \"A seminar on the latest innovations in technology and AI.\",\r\n    \"location\": \"Auditorium A, MIT Campus\",\r\n    \"clubId\": \"67b5e4af72e1fafb6657bf29\",\r\n    \"poster\": \"https://example.com/posters/tech-innovations.jpg\",\r\n    \"fromDate\": \"2025-03-01T10:00:00.000Z\",\r\n    \"toDate\": \"2025-03-01T15:00:00.000Z\",\r\n    \"singleDayEvent\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/events/update",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Event (spoc, admin)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/events/delete/67b7056ae9a14f5b8ba6ca91",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"delete",
+						"67b7056ae9a14f5b8ba6ca91"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Events",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/events/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/events/67b77f3f8c0f1fcd08a8be1f",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"67b77f3f8c0f1fcd08a8be1f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "a23b6bad-d5c9-4008-a07e-6d67523628bf",
+		"name": "Club",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18274868"
+	},
+	"item": [
+		{
+			"name": "Register (admin)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Vaidehi Tech Club\",\r\n    \"abbreviation\":\"VTC\",\r\n    \"description\":\"Vaidehi is a Geek\",\r\n    \"spocEmail\":\"vaidehishulage@gmail.com\",\r\n    \"image\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvHaC-fMIwRwFhgZEvqsfbxL0WkcDQYarWFTxVtKmmdBMEJ7NCqW42Hx-W81IGPLk_g_4&usqp=CAU\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/clubs/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"clubs",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Clubs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/clubs/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"clubs",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Club By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/clubs/67b5e4af72e1fafb6657bf29",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"clubs",
+						"67b5e4af72e1fafb6657bf29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Club Info (spoc, admin)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clubId\":\"67b5e4af72e1fafb6657bf29\",\r\n    \"name\":\"Googlieee12\",\r\n    \"abbreviation\":\"GG\",\r\n    \"description\":\"GG club\",\r\n    \"image\":\"no img\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/clubs/update-info",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"clubs",
+						"update-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Spoc (spoc, admin)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clubId\":\"67b5e4af72e1fafb6657bf29\",\r\n    \"newSpocEmail\":\"spoc@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/clubs/change-spoc",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"clubs",
+						"change-spoc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
