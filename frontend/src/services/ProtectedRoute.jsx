@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { getCurrentUser } from "../utils/auth";
+import { getCurrentUser } from "./auth";
 
 export default function ProtectedRoute({ allowedRoles, children }) {
   const user = getCurrentUser();
